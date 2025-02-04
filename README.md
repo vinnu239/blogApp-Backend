@@ -1,5 +1,8 @@
 # blogApp-Backend
 Blog APP which incluces Java with SpringBoot 
+
+# Added on file firebaseconfig on the repo
+after importing it into the sts create a package with name config same path as controller and paste this file inside it.
 # Follow the below steps to push the code from STS to GitHub
 
 After creating GitHUb account
