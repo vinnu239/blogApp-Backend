@@ -41,7 +41,6 @@ public class BlogService {
     }
 
 	public Comment createComment(Comment comment) {
-		// TODO Auto-generated method stub
 		return commentRepository.save(comment);
 	}
 }
