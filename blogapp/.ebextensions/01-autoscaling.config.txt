@@ -1,0 +1,14 @@
+option_settings:
+  aws:autoscaling:launchconfiguration:
+    InstanceType: t2.micro
+    EC2KeyName: your-key-pair
+  aws:elasticbeanstalk:environment:process:default:
+    HealthCheckPath: /
+  aws:elasticbeanstalk:environment:
+    ServiceRole: aws-elasticbeanstalk-service-role
+  aws:elasticbeanstalk:environment:proxy:nginx:
+    ProxyServer: nginx
+  aws:elasticbeanstalk:environment:launchtemplate:
+    RootVolumeType: gp3
+    DisableIMDSv1: true
+    EnableSpot: false
