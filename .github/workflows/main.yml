@@ -37,5 +37,5 @@ jobs:
            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           pip install awsebcli
-          eb init -p "Java 17 running on 64bit Amazon Linux 2" BlogAppBackend --region us-east-1
+          eb init -p "Corretto 17 running on 64bit Amazon Linux 2" BlogAppBackend --region us-east-1
           eb deploy
