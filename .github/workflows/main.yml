@@ -16,8 +16,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'temurin'  # Specify the distribution (e.g., 'temurin', 'zulu', 'adopt')
-          java-version: '11'       # Specify the Java version
+          distribution: 'temurin'
+          java-version: '11'
 
       - name: Cache Maven packages
         uses: actions/cache@v4
@@ -29,12 +29,15 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
-        working-directory: ./blogapp  # Update this path to the directory containing your pom.xml
+        working-directory: ./blogapp
+
+      - name: Debug Maven Build
+        run: mvn -X clean install
+        working-directory: ./blogapp
 
       - name: Deploy to Elastic Beanstalk
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         _SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           pip install awsebcli
           eb init -p java-11 BlogAppBackend --region us-east-1
