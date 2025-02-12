@@ -28,17 +28,14 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Build with Maven
-        run: mvn clean install
-        working-directory: ./blogapp
-
-      - name: Debug Maven Build
-        run: mvn -X clean install
+        run: mvn clean install -DskipTests
         working-directory: ./blogapp
 
       - name: Deploy to Elastic Beanstalk
         env:
-         _SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           pip install awsebcli
-          eb init -p java-11 BlogAppBackend --region us-east-1
+          eb init -p java-17 BlogAppBackend --region us-east-1
           eb deploy
