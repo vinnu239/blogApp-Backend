@@ -19,6 +19,14 @@ jobs:
           distribution: 'temurin'  # Specify the distribution (e.g., 'temurin', 'zulu', 'adopt')
           java-version: '11'       # Specify the Java version
 
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
       - name: Build with Maven
         run: mvn clean install
         working-directory: ./blogapp  # Update this path to the directory containing your pom.xml
