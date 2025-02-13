@@ -1,0 +1,21 @@
+
+There are several ways to deploy Backend application
+Here I am using ElasticBeanstalk and Rds
+
+#create a Rds with mysql and select the free tier options(dont forgot to add the Db name in the Additional configuration while creating Database)
+#after succesfully created db gather the Endpoint(Hostname),Master username(username),pwd,dayabase name
+#donforgot to add the security groupd inbound rules has all traffic
+#try ti use these properties to connect with local My sql workbench to Rds with the above cred
+# add those respective prop in the application.prop inside springboot code
+#use below formalt if you declared the properites inside Elsaticbeanstlak environemnts while creating it
+#spring.datasource.url=jdbc:mysql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}
+#spring.datasource.username=${RDS_USERNAME}
+#spring.datasource.password=${RDS_PASSWORD}
+
+To connect Fe application use their domain name and paste it inside our coreConfig.js like below
+// replace below allowed Origins with our domain name as below which you can gegt it inside Aws amplify (Domain name)
+                .allowedOrigins("https://your-frontend-domain.com")
+
+#already in the current repo we have workflow file use it if your Aws account is lessthan 12 months otherwise it will be chargeble
+              
+
