@@ -21,6 +21,7 @@ public class BlogService {
     public List<Blog> getAllBlogs() {
         return blogRepository.findAll();
     }
+    // For getting comments based on id
     
     public List<Comment> getCommentsByPostId(Long postId) {
         return commentRepository.findByPostId(postId);
