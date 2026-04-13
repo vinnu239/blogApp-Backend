@@ -21,7 +21,6 @@ public class BlogService {
     public List<Blog> getAllBlogs() {
         return blogRepository.findAll();
     }
-    // For getting comments based on id
     
     public List<Comment> getCommentsByPostId(Long postId) {
         return commentRepository.findByPostId(postId);
@@ -30,6 +29,7 @@ public class BlogService {
     public Blog getBlogById(Long id) {
         return blogRepository.findById(id).orElse(null);
     }
+    //Code needs to update here
 
 
     public Blog saveBlog(Blog blog) {
